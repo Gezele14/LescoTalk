@@ -13,7 +13,7 @@ while(True):
     # Our operations on the frame come here
     gray = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray,(5,5),0)
-    ret, thresh_img = cv2.threshold(blur,100,255,cv2.THRESH_BINARY)
+    ret, thresh_img = cv2.threshold(blur,91,255,cv2.THRESH_BINARY)
     
     contours =  cv2.findContours(thresh_img,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)[-2]
     
@@ -21,14 +21,8 @@ while(True):
     print_ctr = 1
     if len(contours) != 0:
         max_area = 0
-        for i in range(len(contours)):
-            cnt = contours[i]
-            area = cv2.contourArea(cnt)
-            if(area>max_area):
-                max_area=area
-                ci = i
-                
-        cnt = contours[ci]
+        
+        cnt = max(contours, key=cv2.contourArea)
         cv2.drawContours(crop_img,[cnt],-1,(0,255,0),3)
     
     # Display the resulting frame
