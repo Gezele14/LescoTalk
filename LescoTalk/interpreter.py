@@ -1,3 +1,4 @@
+from prueba1 import *
 
 def inter(lista):
     if isinstance(lista,list):
@@ -58,9 +59,9 @@ def inter(lista):
 
 def printt(pal,l,q):
     if q=="letra":
-        print(pal[l])
+        prueba(pal[l])
     elif q=="palabra":
-        print(pal)
+        prueba(pal)
         
 def alexico(lis,cont,lr):
     if  lis[cont]== 0:
@@ -221,4 +222,4 @@ def convp(lis,palabra,cont):
         palabra+= 'Tú '
         return convp(lis,palabra,cont+2)
 
-inter([24,6,3,0])
+inter([25,3,21,0])
