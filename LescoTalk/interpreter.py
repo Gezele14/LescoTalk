@@ -22,19 +22,19 @@ def inter(lista):
                     printt(pale,0,"palabra")
                 else:
                     flag2=False
-                for i in range(len(palabra)):
-                    if flag2==True:
-                        flag2=False
-                        comp=palabra[i-1]+palabra[i]
-                        printt(comp,0,"palabra")
-                    elif palabra[i]=="C":
-                        if i==len(ptk)/2:
-                            if palabra[i+1]=="H":
-                                flag2=True
+                    for i in range(len(palabra)):
+                        if flag2==True:
+                            flag2=False
+                            comp=palabra[i-1]+palabra[i]
+                            printt(comp,0,"palabra")
+                        elif palabra[i]=="C":
+                            if i==len(ptk)/2:
+                                if palabra[i+1]=="H":
+                                    flag2=True
+                            else:
+                                printt(palabra,i,ptk[1])
                         else:
                             printt(palabra,i,ptk[1])
-                    else:
-                        printt(palabra,i,ptk[1])
             else:
                 flag=False
                 for i in range(len(palabra)):
@@ -221,4 +221,4 @@ def convp(lis,palabra,cont):
         palabra+= 'Tú '
         return convp(lis,palabra,cont+2)
 
-inter([8,14,2,0])
+inter([24,6,3,0])
